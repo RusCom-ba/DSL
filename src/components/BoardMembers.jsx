@@ -21,13 +21,13 @@ const upravniOdbor = [
   {
     ime: "Magda Sluga",
     pozicija: "Poslovna sekretarka",
-    tel: "+336 41 657 905",
+    tel: "+386 41 657 905",
   },
 ];
 
 const nadzorniOdbor = {
-  predsednica: "Janj Pavlič Razgoršek",
-  clanice: ["Jana Mravljak", "Lidija Haložan"],
+  predsednica: "Janja Pavlič Razgoršek",
+  clanice: ["Jana Mravljak", "Jožica Založnik"],
 };
 
 const disciplinskaKomisija = {

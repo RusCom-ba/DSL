@@ -86,7 +86,7 @@ const AboutSection = () => {
 
         <div className="mt-10 text-center md:col-span-2">
           <a
-            href="mailto:drustvo@slovenskihlovk.si"
+            href="mailto:drustvo.slovenskih.lovk@lovskazveza.si"
             className="inline-block bg-green-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-green-800 transition duration-300"
           >
             Kontaktirajte nas

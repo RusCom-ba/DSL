@@ -3,8 +3,11 @@ import React, { useEffect, useState } from "react";
 const images = [
   "/assets/bear.jpg",
   "/assets/deer.jpg",
-  "/assets/fox.jpg",
-  "/assets/tiger.jpg"
+  "/assets/ris.jpg",
+  "/assets/wildBoar.jpg",
+  "/assets/roeDeer.jpg",
+  "/assets/chamois.jpg",
+  "/assets/mouflon.jpg"
 ];
 
 const HeroBanner = () => {

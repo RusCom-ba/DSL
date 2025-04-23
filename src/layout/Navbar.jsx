@@ -6,10 +6,13 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
-    { label: "VČLANITEV", href: "#vclanitev" },
+    { label: "PREDSTAVITEV", href: "#predstavitev" },
     { label: "UPRAVNI ODBOR", href: "#upravni-odbor" },
-    { label: "ZADNJE NOVOSTI", href: "#novosti" },
+    { label: "OBVESTILA", href: "#obvestila" },
     { label: "FOTOGALERIJA", href: "#galerija" },
+    { label: "VČLANITEV", href: "#vclanitev" },
+    { label: "KONTAKT", href: "#kontakt" },
+
   ];
 
   useEffect(() => {

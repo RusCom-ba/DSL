@@ -11,7 +11,7 @@ import {
 
 const AboutSection = () => {
   return (
-    <section id="o-drustvu" className="bg-white px-6 py-20 text-gray-800">
+    <section id="kontakt" className="bg-white px-6 py-24 text-gray-800">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         <div>
           <h2 className="text-4xl font-bold mb-8 text-green-800 flex items-center gap-2">

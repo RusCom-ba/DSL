@@ -11,16 +11,19 @@ const upravniOdbor = [
     ime: "Ivica Kocjančič",
     slika: "/assets/predsednica.png",
     pozicija: "Predsednica društva",
+    email: "drustvo.slovenskih.lovk@lovskazveza.si",
     tel: "+386 41 786 620",
   },
   {
     ime: "Tjaša Žgur",
     pozicija: "Podpredsednica",
+    email: "drustvo.slovenskih.lovk@lovskazveza.si",
     tel: "+386 40 662 848",
   },
   {
     ime: "Magda Sluga",
     pozicija: "Poslovna sekretarka",
+    email: "drustvo.slovenskih.lovk@lovskazveza.si",
     tel: "+386 41 657 905",
   },
 ];

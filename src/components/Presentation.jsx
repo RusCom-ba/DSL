@@ -49,7 +49,7 @@ const Presentation = () => {
           className="rounded-3xl overflow-hidden shadow-xl"
         >
           <img
-            src="/assets/deer.jpg"
+            src="/assets/o-nas-slika.jpg"
             alt="lovka"
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
           />

@@ -46,7 +46,7 @@ const Enrollment = () => {
         {/* SLIKA ILI ILUSTRACIJA */}
         <div className="w-full">
           <img
-            src="/assets/bear.jpg"
+            src="/assets/pristop-slika.jpg"
             alt="join us"
             className="rounded-xl shadow-lg object-cover w-full max-h-[500px]"
           />

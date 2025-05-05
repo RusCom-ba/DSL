@@ -15,13 +15,24 @@ const GalleryUploadForm = () => {
     setImages([...e.target.files]);
   };
 
+  const handleDrop = (e) => {
+    e.preventDefault();
+    if (e.dataTransfer.files) {
+      setImages([...e.dataTransfer.files]);
+    }
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
   const uploadToCloudinary = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "dsl_upload");
 
     const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/duvaqx6mc/image/upload",
+      "https://api.cloudinary.com/v1_1/duvaqx6mc/image/upload",
       formData
     );
 
@@ -99,8 +110,14 @@ const GalleryUploadForm = () => {
         />
       </div>
 
-      <div>
-        <label className="block font-medium mb-1">Dodaj slike</label>
+      <div
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+        className="border-2 border-dashed border-gray-400 p-6 rounded text-center cursor-pointer"
+      >
+        <p className="mb-2 text-gray-700">
+          Prevucite slike ovdje ili kliknite ispod da ih dodate
+        </p>
         <input
           type="file"
           multiple
@@ -118,7 +135,9 @@ const GalleryUploadForm = () => {
       </button>
 
       {success && (
-        <p className="text-green-700 font-medium mt-4">Galerija uspješno dodana!</p>
+        <p className="text-green-700 font-medium mt-4">
+          Galerija uspješno dodana!
+        </p>
       )}
     </form>
   );

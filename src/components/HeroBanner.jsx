@@ -36,24 +36,24 @@ const HeroBanner = () => {
       <div className="absolute inset-0 bg-black bg-opacity-50 z-20"></div>
 
       <div className="relative z-30 flex items-center justify-center h-full px-6">
-        <div className="text-center max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 font-script">
-            DOBRODOŠLI
-          </h1>
-          <h2 className="text-2xl md:text-4xl font-semibold mb-4 font-script">
-            NA SPLETNI STRANI DRUŠTVA SLOVENSKIH LOVK
-          </h2>
-          <p className="text-lg md:text-xl leading-relaxed font-elegant">
-            Ta stran je posvečena ženskam, ki delimo ljubezen do narave in
-            lovske tradicije. Lov nam predstavlja edinstven način povezovanja s
-            svetom okoli nas, kjer lahko izkusimo tako njegovo divjo lepoto kot
-            tudi izzive, ki jih prinaša. Ponosne smo, da smo lovke, in hkrati
-            poudarjamo, da je naša ljubezen do živali in narave temelj našega
-            delovanja. Združene želimo ohranjati in razvijati lovstvo na
-            trajnosten način.{" "}
-          </p>
-        </div>
-      </div>
+  <div className="text-center max-w-3xl text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+    <h1 className="text-4xl md:text-6xl font-bold mb-6 font-elegant">
+      DOBRODOŠLI
+    </h1>
+    <h2 className="text-2xl md:text-4xl font-semibold mb-4 font-elegant">
+      NA SPLETNI STRANI DRUŠTVA SLOVENSKIH LOVK
+    </h2>
+    <p className="text-lg md:text-xl leading-relaxed font-elegant">
+      Ta stran je posvečena ženskam, ki delimo ljubezen do narave in
+      lovske tradicije. Lov nam predstavlja edinstven način povezovanja s
+      svetom okoli nas, kjer lahko izkusimo tako njegovo divjo lepoto kot
+      tudi izzive, ki jih prinaša. Ponosne smo, da smo lovke, in hkrati
+      poudarjamo, da je naša ljubezen do živali in narave temelj našega
+      delovanja. Združene želimo ohranjati in razvijati lovstvo na
+      trajnosten način.
+    </p>
+  </div>
+</div>
     </div>
   );
 };

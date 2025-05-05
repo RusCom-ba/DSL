@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
@@ -9,10 +10,9 @@ const Navbar = () => {
     { label: "PREDSTAVITEV", href: "#predstavitev" },
     { label: "UPRAVNI ODBOR", href: "#upravni-odbor" },
     { label: "OBVESTILA", href: "#obvestila" },
-    { label: "FOTOGALERIJA", href: "#galerija" },
+    { label: "FOTOGALERIJA", href: "/galerija" },
     { label: "VČLANITEV", href: "#vclanitev" },
     { label: "KONTAKT", href: "#kontakt" },
-
   ];
 
   useEffect(() => {
@@ -41,13 +41,13 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-          <a href="#" className="flex items-center gap-4">
-  <img
-    src="/assets/dsl-logo.png"
-    alt="logo"
-    className="h-16 w-auto object-contain drop-shadow-lg cursor-pointer"
-  />
-</a>
+            <Link to="/">
+              <img
+                src="/assets/dsl-logo.png"
+                alt="logo"
+                className="h-16 w-auto object-contain drop-shadow-lg cursor-pointer"
+              />
+            </Link>
           </div>
 
           <nav className="hidden md:flex items-center gap-10">
@@ -71,9 +71,15 @@ const Navbar = () => {
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? (
-              <X size={28} className={scrolled ? "text-green-900" : "text-white"} />
+              <X
+                size={28}
+                className={scrolled ? "text-green-900" : "text-white"}
+              />
             ) : (
-              <Menu size={28} className={scrolled ? "text-green-900" : "text-white"} />
+              <Menu
+                size={28}
+                className={scrolled ? "text-green-900" : "text-white"}
+              />
             )}
           </button>
         </div>

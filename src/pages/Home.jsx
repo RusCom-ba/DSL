@@ -1,5 +1,4 @@
 import HeroBanner from "../components/HeroBanner";
-import PhotoGallery from "../components/PhotoGallery";
 import AboutSection from "../components/AboutSection";
 import BoardMembers from "../components/BoardMembers";
 import Presentation from "../components/Presentation";

@@ -1,39 +1,54 @@
-import React from "react";
-import { galleries } from "../data/galleryData";
+// GalleryOverview.jsx
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 
 const GalleryOverview = () => {
-  return (
-    <section className="min-h-screen bg-white px-6 py-20">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold mb-12 text-center text-green-800">
-          Fotogalerije
-        </h1>
+  const [galleries, setGalleries] = useState([]);
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {galleries.map((gallery) => (
+  useEffect(() => {
+    const fetchGalleries = async () => {
+      const snapshot = await getDocs(collection(db, "galerije"));
+      const data = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setGalleries(data);
+    };
+
+    fetchGalleries();
+  }, []);
+
+  return (
+    <section id="galerija" className="bg-white py-24 px-4">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl font-bold text-green-800 text-center mb-14 uppercase">
+          Fotogalerija
+        </h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {galleries.map((g) => (
             <Link
-              key={gallery.id}
-              to={`/fotogalerija/${gallery.id}`}
-              className="block bg-white shadow-lg rounded-lg overflow-hidden hover:scale-[1.02] transition transform"
+              to={`/galerija/${g.id}`}
+              key={g.id}
+              className="bg-white rounded-xl border border-green-200 shadow-md hover:shadow-xl transition duration-300"
             >
-              {/* Title */}
-              <div className="bg-green-800 text-white text-center px-4 py-3 font-semibold">
-                {gallery.title}
+              <div className="bg-green-800 text-white text-center font-semibold py-2 rounded-t-xl">
+                {g.title}
               </div>
 
-              {/* Image */}
-              <div className="aspect-w-4 aspect-h-3">
+              <div className="flex justify-center py-5 px-2 bg-white">
                 <img
-                  src={gallery.coverImage}
-                  alt={gallery.title}
-                  className="w-full h-full object-cover"
+                  src={g.images?.[0]} // koristi prvu sliku kao cover
+                  alt={g.title}
+                  className="w-full max-w-[280px] h-[200px] object-cover rounded-[50%] shadow-lg border-[6px] border-white"
+                  style={{ boxShadow: "0 0 25px #f4e8c1" }}
                 />
               </div>
 
-              {/* Footer: Location & Date */}
-              <div className="bg-green-800 text-white text-center px-4 py-2 text-sm">
-                {gallery.location} {gallery.date}
+              <div className="bg-green-800 text-white text-center py-2 font-medium rounded-b-xl">
+                {g.location} {g.date}
               </div>
             </Link>
           ))}

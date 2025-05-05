@@ -46,7 +46,7 @@ const AdminNews = () => {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm("Želite li zaista obrisati ovo obvestilo?")) {
+    if (window.confirm("Ali ste prepričani, da želite izbrisati to obvestilo?")) {
       await deleteDoc(doc(db, "obvestila", id));
       fetchObvestila();
     }
@@ -54,13 +54,13 @@ const AdminNews = () => {
 
   return (
     <div className="p-6 bg-white shadow rounded-lg">
-      <h2 className="text-xl font-semibold mb-4">📰 Upravljanje obvestilima</h2>
+      <h2 className="text-xl font-semibold mb-4">📰 Upravljanje z obvestili</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4 mb-6">
         <div>
           <input
             type="text"
-            placeholder="Naslov"
+            placeholder="Naslov obvestila"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="w-full border px-3 py-2 rounded"
@@ -93,13 +93,15 @@ const AdminNews = () => {
           >
             <div>
               <p className="font-semibold text-green-800">{item.title}</p>
-              <p className="text-gray-700 text-sm mt-1 whitespace-pre-line">{item.content}</p>
+              <p className="text-gray-700 text-sm mt-1 whitespace-pre-line">
+                {item.content}
+              </p>
             </div>
             <button
               onClick={() => handleDelete(item.id)}
               className="text-sm text-red-600 hover:underline ml-4"
             >
-              Obriši
+              Izbriši
             </button>
           </li>
         ))}

@@ -12,14 +12,14 @@ const GalleryUploadForm = () => {
   const [success, setSuccess] = useState(false);
 
   const handleImageChange = (e) => {
-    setImages([...e.target.files]);
+    const files = Array.from(e.target.files);
+    setImages((prev) => [...prev, ...files]);
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
-    if (e.dataTransfer.files) {
-      setImages([...e.dataTransfer.files]);
-    }
+    const files = Array.from(e.dataTransfer.files);
+    setImages((prev) => [...prev, ...files]);
   };
 
   const handleDragOver = (e) => {
@@ -42,7 +42,7 @@ const GalleryUploadForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title || !location || !date || images.length === 0) {
-      alert("Molimo popunite sva polja i dodajte slike.");
+      alert("Prosimo, izpolnite vsa polja in dodajte slike.");
       return;
     }
 
@@ -59,7 +59,7 @@ const GalleryUploadForm = () => {
         location,
         date,
         images: uploadedUrls,
-        createdAt: Timestamp.now()
+        createdAt: Timestamp.now(),
       });
 
       setSuccess(true);
@@ -68,8 +68,8 @@ const GalleryUploadForm = () => {
       setDate("");
       setImages([]);
     } catch (err) {
-      console.error("Greška prilikom dodavanja galerije:", err);
-      alert("Greška prilikom slanja galerije.");
+      console.error("Napaka pri dodajanju galerije:", err);
+      alert("Napaka pri pošiljanju galerije.");
     } finally {
       setUploading(false);
     }
@@ -113,30 +113,39 @@ const GalleryUploadForm = () => {
       <div
         onDrop={handleDrop}
         onDragOver={handleDragOver}
-        className="border-2 border-dashed border-gray-400 p-6 rounded text-center cursor-pointer"
+        className="border-2 border-dashed border-gray-400 p-6 rounded text-center cursor-pointer bg-gray-50 hover:bg-gray-100"
       >
         <p className="mb-2 text-gray-700">
-          Prevucite slike ovdje ili kliknite ispod da ih dodate
+          Povlecite slike sem ali kliknite spodaj za dodajanje
         </p>
         <input
           type="file"
           multiple
           accept="image/*"
           onChange={handleImageChange}
+          className="w-full"
         />
       </div>
+
+      {images.length > 0 && (
+        <ul className="text-sm text-gray-700 list-disc list-inside">
+          {images.map((file, idx) => (
+            <li key={idx}>{file.name}</li>
+          ))}
+        </ul>
+      )}
 
       <button
         type="submit"
         className="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded transition"
         disabled={uploading}
       >
-        {uploading ? "Dodavanje..." : "Objavi galeriju"}
+        {uploading ? "Dodajanje..." : "Objavi galerijo"}
       </button>
 
       {success && (
         <p className="text-green-700 font-medium mt-4">
-          Galerija uspješno dodana!
+          Galerija je bila uspešno dodana!
         </p>
       )}
     </form>

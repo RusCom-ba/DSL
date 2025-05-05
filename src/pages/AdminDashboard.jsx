@@ -116,7 +116,7 @@ const AdminDashboard = () => {
                   onClick={() => handleDelete(g.id)}
                   className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
                 >
-                  Obriši
+                  Izbriši
                 </button>
               </li>
             ))}

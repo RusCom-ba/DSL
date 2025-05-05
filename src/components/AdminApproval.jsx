@@ -10,45 +10,45 @@ import {
 } from "firebase/firestore";
 
 const AdminApproval = () => {
-  const [korisnici, setKorisnici] = useState([]);
+  const [uporabnice, setUporabnice] = useState([]);
 
-  const fetchKorisnici = async () => {
+  const fetchUporabnice = async () => {
     const q = query(collection(db, "clanice"), where("odobreno", "==", false));
     const snapshot = await getDocs(q);
     const data = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     }));
-    setKorisnici(data);
+    setUporabnice(data);
   };
 
-  const odobriPristup = async (id) => {
+  const odobriPristop = async (id) => {
     await updateDoc(doc(db, "clanice", id), {
       odobreno: true,
     });
-    fetchKorisnici();
+    fetchUporabnice();
   };
 
   useEffect(() => {
-    fetchKorisnici();
+    fetchUporabnice();
   }, []);
 
   return (
     <div className="p-6 bg-white shadow rounded-lg">
-      <h2 className="text-xl font-semibold mb-4">🔐 Odobravanje pristupa</h2>
+      <h2 className="text-xl font-semibold mb-4">🔐 Odobritev dostopa</h2>
 
-      {korisnici.length === 0 ? (
-        <p className="text-gray-600">Nema zahtjeva za odobravanje.</p>
+      {uporabnice.length === 0 ? (
+        <p className="text-gray-600">Ni zahtevkov za odobritev.</p>
       ) : (
         <ul className="space-y-3">
-          {korisnici.map((k) => (
+          {uporabnice.map((u) => (
             <li
-              key={k.id}
+              key={u.id}
               className="flex items-center justify-between bg-gray-100 px-4 py-2 rounded"
             >
-              <span>{k.email}</span>
+              <span>{u.email}</span>
               <button
-                onClick={() => odobriPristup(k.id)}
+                onClick={() => odobriPristop(u.id)}
                 className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
               >
                 Odobri

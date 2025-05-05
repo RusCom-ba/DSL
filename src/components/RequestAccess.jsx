@@ -28,7 +28,7 @@ const RequestAccess = () => {
       setPassword("");
     } catch (err) {
       console.error(err);
-      setError("Greška prilikom registracije. Email možda već postoji.");
+      setError("Napaka pri registraciji. Morda ta e-poštni naslov že obstaja.");
     }
   };
 
@@ -36,18 +36,18 @@ const RequestAccess = () => {
     <div className="min-h-screen flex items-center justify-center bg-green-50 px-4">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-green-800 mb-6 text-center">
-          Zatraži pristup
+          Zahteva za dostop
         </h2>
 
         {success ? (
           <p className="text-green-700 font-medium text-center">
-            Zahtjev poslan! Čekajte odobrenje od administratora.
+            Zahteva je bila poslana! Počakajte na odobritev administratorja.
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="email"
-              placeholder="Email"
+              placeholder="E-pošta"
               className="w-full px-4 py-2 border rounded"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -55,7 +55,7 @@ const RequestAccess = () => {
             />
             <input
               type="password"
-              placeholder="Lozinka"
+              placeholder="Geslo"
               className="w-full px-4 py-2 border rounded"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -66,7 +66,7 @@ const RequestAccess = () => {
               type="submit"
               className="w-full bg-green-700 text-white py-2 rounded hover:bg-green-800"
             >
-              Pošalji zahtjev
+              Pošlji zahtevo
             </button>
           </form>
         )}

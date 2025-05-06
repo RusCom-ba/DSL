@@ -43,6 +43,7 @@ const GalleryDetail = () => {
                   src={src}
                   alt={`Slika ${i + 1}`}
                   className="rounded-xl shadow-md cursor-pointer hover:scale-105 transition-transform"
+                  
                 />
               </PhotoView>
             ))}

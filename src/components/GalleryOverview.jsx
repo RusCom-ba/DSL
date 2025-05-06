@@ -13,11 +13,21 @@ const GalleryOverview = () => {
         id: doc.id,
         ...doc.data(),
       }));
+
+      // Sortiranje po datumu (od najnovijeg ka najstarijem)
+      data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
       setGalleries(data);
     };
 
     fetchGalleries();
   }, []);
+
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const [year, month, day] = dateString.split("-");
+    return `${day}.${month}.${year}`;
+  };
 
   return (
     <section id="galerija" className="bg-white py-24 px-4">
@@ -41,15 +51,15 @@ const GalleryOverview = () => {
                 <img
                   src={g.images?.[0]}
                   alt={g.title}
-                  className="w-full max-w-[280px] h-[200px] object-cover rounded-[30%] "
+                  className="w-full max-w-[280px] h-[200px] object-cover rounded-[30%]"
                   style={{
-                    boxShadow: "0 0 35px 10px rgba(0, 93, 41, 0.4)", 
+                    boxShadow: "0 0 35px 10px rgba(0, 93, 41, 0.4)",
                   }}
                 />
               </div>
 
               <div className="bg-green-800 text-white text-center py-2 font-medium rounded-b-xl">
-                {g.location} {g.date}
+                {g.location} {formatDate(g.date)}
               </div>
             </Link>
           ))}

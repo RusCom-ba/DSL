@@ -1,4 +1,3 @@
-// GalleryOverview.jsx
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
@@ -44,7 +43,7 @@ const GalleryOverview = () => {
                   alt={g.title}
                   className="w-full max-w-[280px] h-[200px] object-cover rounded-[30%] "
                   style={{
-                    boxShadow: "0 0 35px 10px rgba(0, 93, 41, 0.4)", // zeleni blur oko ivica
+                    boxShadow: "0 0 35px 10px rgba(0, 93, 41, 0.4)", 
                   }}
                 />
               </div>

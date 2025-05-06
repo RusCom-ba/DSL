@@ -1,12 +1,11 @@
 import React from "react";
 import { Download, PencilLine } from "lucide-react";
-import { Link } from "react-router-dom"; // za formu
+import { Link } from "react-router-dom";
 
 const Enrollment = () => {
   return (
     <section id="vclanitev" className="bg-gradient-to-b from-green-50 to-white py-24 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        {/* TEKSTUALNI DIO */}
         <div>
           <h2 className="text-4xl md:text-5xl font-bold text-green-900 uppercase mb-6 tracking-wide">
             Postani del naše skupnosti
@@ -22,7 +21,6 @@ const Enrollment = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            {/* DOWNLOAD PDF */}
             <a
               href="/assets/pristopna-izjava.pdf"
               download
@@ -32,7 +30,6 @@ const Enrollment = () => {
               Prenesi izjavo (PDF)
             </a>
 
-            {/* ONLINE FORMA */}
             <Link
               to="/vclanitev-forma"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-green-800 font-semibold border border-green-700 hover:bg-green-100 transition"
@@ -43,7 +40,6 @@ const Enrollment = () => {
           </div>
         </div>
 
-        {/* SLIKA ILI ILUSTRACIJA */}
         <div className="w-full">
           <img
             src="/assets/pristop-slika.jpg"

@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; // animacija
+import { motion } from "framer-motion"; 
 
 const Presentation = () => {
   return (
@@ -7,7 +7,6 @@ const Presentation = () => {
       id="predstavitev"
       className="relative bg-gradient-to-b from-green-50 to-white py-24 px-6 overflow-hidden"
     >
-      {/* LEAF ILI BACKDROP DEKORACIJA */}
       <img
         src="/assets/leaf-pattern.svg"
         alt="leaf"
@@ -15,7 +14,6 @@ const Presentation = () => {
       />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
-        {/* TEXT + ANIMACIJA */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +38,6 @@ const Presentation = () => {
           </p>
         </motion.div>
 
-        {/* SLIKA */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}

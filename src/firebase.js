@@ -13,7 +13,6 @@ const firebaseConfig = {
   measurementId: "G-PZT2CRYZT7"
 };
 
-// ✔️ spriječi dupli init
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 const db = getFirestore(app);
 const analytics = getAnalytics(app);

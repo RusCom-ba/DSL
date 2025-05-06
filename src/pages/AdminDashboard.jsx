@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import GalleryUploadForm from "../components/GalleryUploadForm";
-import AdminNews from "../components/AdminNews";
-import AdminApproval from "../components/AdminApproval";
+import GalleryUploadForm from "../components/admin/GalleryUploadForm";
+import AdminNews from "../components/admin/AdminNews";
+import AdminApproval from "../components/admin/AdminApproval";
 import { auth, db } from "../firebase";
 import {
   signInWithEmailAndPassword,

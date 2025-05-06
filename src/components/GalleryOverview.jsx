@@ -40,10 +40,12 @@ const GalleryOverview = () => {
 
               <div className="flex justify-center py-5 px-2 bg-white">
                 <img
-                  src={g.images?.[0]} // koristi prvu sliku kao cover
+                  src={g.images?.[0]}
                   alt={g.title}
-                  className="w-full max-w-[280px] h-[200px] object-cover rounded-[50%] shadow-lg border-[6px] border-white"
-                  style={{ boxShadow: "0 0 25px #f4e8c1" }}
+                  className="w-full max-w-[280px] h-[200px] object-cover rounded-[30%] "
+                  style={{
+                    boxShadow: "0 0 35px 10px rgba(0, 93, 41, 0.4)", // zeleni blur oko ivica
+                  }}
                 />
               </div>
 

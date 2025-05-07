@@ -8,6 +8,7 @@ import GalleryDetail from "./components/GalleryDetail";
 import GalleryOverview from "./components/GalleryOverview";
 import LoginNews from "./components/LoginNews";
 import RegisterForAccess from "./components/RegisterForAccess";
+import EditGallery from "./components/admin/EditGallery";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/galerija/:id" element={<GalleryDetail />} />
         <Route path="/prijava" element={<LoginNews />} />
         <Route path="/register" element={<RegisterForAccess />} />
+        <Route path="/admin-dash/gallery/:id/edit" element={<EditGallery />} />
       </Routes>
       <Footer />
     </Router>

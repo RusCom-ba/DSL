@@ -14,7 +14,6 @@ const GalleryOverview = () => {
         ...doc.data(),
       }));
 
-      // Sortiranje po datumu (od najnovijeg ka najstarijem)
       data.sort((a, b) => new Date(b.date) - new Date(a.date));
 
       setGalleries(data);

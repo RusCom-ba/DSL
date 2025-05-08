@@ -4,7 +4,11 @@ import GalleryUploadForm from "../components/admin/GalleryUploadForm";
 import AdminNews from "../components/admin/AdminNews";
 import AdminApproval from "../components/admin/AdminApproval";
 import { auth, db } from "../firebase";
-import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
 import {
   collection,
   getDocs,
@@ -15,7 +19,7 @@ import {
 
 const AdminDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [checkingAuth, setCheckingAuth] = useState(true); 
+  const [checkingAuth, setCheckingAuth] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [galleries, setGalleries] = useState([]);
@@ -45,7 +49,7 @@ const AdminDashboard = () => {
 
       const docSnap = await getDoc(doc(db, "clanice", uid));
       if (!docSnap.exists() || !docSnap.data().isAdmin) {
-        setError("Nemate administratorski pristup.");
+        setError("Nimate administratorskega dostopa.");
         return;
       }
 
@@ -53,7 +57,7 @@ const AdminDashboard = () => {
       fetchGalleries();
     } catch (err) {
       console.error(err);
-      setError("Netočen e-mail ili geslo.");
+      setError("Napačen e-poštni naslov ali geslo.");
     }
   };
 
@@ -67,13 +71,13 @@ const AdminDashboard = () => {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm("Da li ste sigurni da želite obrisati ovu galeriju?")) {
+    if (window.confirm("Ali ste prepričani, da želite izbrisati to galerijo?")) {
       await deleteDoc(doc(db, "galerije", id));
       fetchGalleries();
     }
   };
 
-  if (checkingAuth) return null; 
+  if (checkingAuth) return null;
 
   if (!loggedIn) {
     return (
@@ -85,12 +89,12 @@ const AdminDashboard = () => {
           }}
           className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full"
         >
-          <h2 className="text-2xl font-bold mb-4 text-center">Admin Prijava</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center">Admin login</h2>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="E-mail"
+            placeholder="E-pošta"
             className="w-full border px-4 py-2 rounded mb-4"
             required
           />
@@ -118,7 +122,7 @@ const AdminDashboard = () => {
     <div className="min-h-screen bg-gray-50 p-10 py-24">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-4xl font-bold text-green-800">
-          Admin Dashboard
+          Nadzorna plošča
         </h1>
         <button
           onClick={async () => {
@@ -133,13 +137,13 @@ const AdminDashboard = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="p-6 bg-white shadow rounded-lg">
-          <h2 className="text-xl font-semibold mb-2">📤 Dodaj nove slike</h2>
+          <h2 className="text-xl font-semibold mb-2">📤 Dodaj nove fotografije</h2>
           <GalleryUploadForm refreshGalleries={fetchGalleries} />
         </div>
 
         <div className="p-6 bg-white shadow rounded-lg">
           <h2 className="text-xl font-semibold mb-4">
-            🖼️ Upravljanje galerijama
+            🖼️ Upravljanje galerijami
           </h2>
           <ul className="space-y-3">
             {galleries.map((g) => (

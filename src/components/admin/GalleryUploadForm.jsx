@@ -26,6 +26,10 @@ const GalleryUploadForm = () => {
     e.preventDefault();
   };
 
+  const handleRemoveImage = (index) => {
+    setImages((prev) => prev.filter((_, i) => i !== index));
+  };
+
   const uploadToCloudinary = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
@@ -128,9 +132,18 @@ const GalleryUploadForm = () => {
       </div>
 
       {images.length > 0 && (
-        <ul className="text-sm text-gray-700 list-disc list-inside">
+        <ul className="text-sm text-gray-700 list-disc list-inside space-y-1">
           {images.map((file, idx) => (
-            <li key={idx}>{file.name}</li>
+            <li key={idx} className="flex justify-between items-center">
+              <span>{file.name}</span>
+              <button
+                type="button"
+                onClick={() => handleRemoveImage(idx)}
+                className="text-red-600 hover:text-red-800 text-xs ml-4"
+              >
+                ✕
+              </button>
+            </li>
           ))}
         </ul>
       )}

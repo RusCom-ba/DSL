@@ -4,6 +4,7 @@ import {
   collection,
   getDocs,
   updateDoc,
+  deleteDoc,
   doc,
   query,
   where,
@@ -29,6 +30,11 @@ const AdminApproval = () => {
     fetchUporabnice();
   };
 
+  const zavrniPristop = async (id) => {
+    await deleteDoc(doc(db, "clanice", id));
+    fetchUporabnice();
+  };
+
   useEffect(() => {
     fetchUporabnice();
   }, []);
@@ -47,12 +53,20 @@ const AdminApproval = () => {
               className="flex items-center justify-between bg-gray-100 px-4 py-2 rounded"
             >
               <span>{u.email}</span>
-              <button
-                onClick={() => odobriPristop(u.id)}
-                className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
-              >
-                Odobri
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => odobriPristop(u.id)}
+                  className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
+                >
+                  Odobri
+                </button>
+                <button
+                  onClick={() => zavrniPristop(u.id)}
+                  className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
+                >
+                  Zavrni
+                </button>
+              </div>
             </li>
           ))}
         </ul>

@@ -63,7 +63,7 @@ const EditGallery = () => {
 
   const handleNewImages = (e) => {
     const files = Array.from(e.target.files);
-    setNewImages(files);
+    setNewImages((prev) => [...prev, ...files]);
   };
 
   const uploadToCloudinary = async (file) => {
@@ -173,9 +173,22 @@ const EditGallery = () => {
             <p className="text-sm text-gray-700 mb-2">
               Izbrane slike za nalaganje:
             </p>
-            <ul className="list-disc pl-5 text-sm text-gray-600">
+            <ul className="space-y-2">
               {newImages.map((file, i) => (
-                <li key={i}>{file.name}</li>
+                <li
+                  key={i}
+                  className="flex justify-between items-center bg-gray-100 px-3 py-2 rounded"
+                >
+                  <span className="text-sm text-gray-800">{file.name}</span>
+                  <button
+                    onClick={() =>
+                      setNewImages((prev) => prev.filter((_, idx) => idx !== i))
+                    }
+                    className="text-red-600 hover:text-red-800 text-xs"
+                  >
+                    ✕
+                  </button>
+                </li>
               ))}
             </ul>
           </div>

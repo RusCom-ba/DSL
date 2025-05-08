@@ -1,12 +1,28 @@
-# React + Vite
+# 🦌 Društvo slovenskih lovk – Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the official web application for the *Društvo Slovenskih Lovk* (Slovene Women Hunters Association), designed to support internal communication, gallery management, and membership access.
 
-Currently, two official plugins are available:
+## 🔍 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application provides a secure and efficient way for members to request access, view official announcements, and browse photo galleries. Admin users can manage content through a private dashboard.
 
-## Expanding the ESLint configuration
+## ⚙️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React (Vite), Tailwind CSS
+- **Authentication & Database**: Firebase Authentication and Firestore
+- **Image Hosting**: Cloudinary
+- **Email Service**: EmailJS
+
+## 🚀 Deployment
+
+The application is deployed on **Vercel** with secure routing and authentication checks across all protected routes.
+
+## 📬 Contact
+
+For technical questions or access issues, please contact:
+
+**rusmircomor@gmail.com**
+
+---
+
+> This project is developed and maintained exclusively for internal use by the Slovene Women Hunters Association. All rights reserved.

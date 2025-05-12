@@ -23,6 +23,7 @@ const upravniOdbor = [
   },
   {
     ime: "Magda Sluga",
+    slika: "/assets/sekretarka.jpg",
     pozicija: "Poslovna sekretarka",
     email: "drustvo.slovenskih.lovk@lovskazveza.si",
     tel: "+386 41 657 905",

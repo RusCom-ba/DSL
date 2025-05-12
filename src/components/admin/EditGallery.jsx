@@ -19,6 +19,7 @@ const EditGallery = () => {
   const [newImages, setNewImages] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -40,6 +41,7 @@ const EditGallery = () => {
         setGallery(data);
         setImages(data.images || []);
         setTitle(data.title || "");
+        setDate(data.date || "");
       }
     });
 
@@ -112,6 +114,16 @@ const EditGallery = () => {
     }
   };
 
+  const handleSaveDate = async () => {
+    try {
+      await updateDoc(doc(db, "galerije", id), { date });
+      alert("Datum uspešno posodobljen.");
+    } catch (err) {
+      console.error("Napaka pri shranjevanju datuma:", err);
+      alert("Napaka pri shranjevanju datuma.");
+    }
+  };
+
   if (!gallery) return <p>Galerija se nalaga...</p>;
 
   return (
@@ -136,6 +148,24 @@ const EditGallery = () => {
             className="mt-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded"
           >
             Shrani naslov
+          </button>
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Datum galerije
+          </label>
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="w-full px-4 py-2 border rounded"
+          />
+          <button
+            onClick={handleSaveDate}
+            className="mt-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded"
+          >
+            Shrani datum
           </button>
         </div>
 

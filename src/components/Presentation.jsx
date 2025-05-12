@@ -34,7 +34,7 @@ const Presentation = () => {
           </p>
 
           <p className="text-lg leading-relaxed">
-            Zavezujemo se za zavesten in sodoben lov, ki temelji na spoštovanju do živali in okolja. Ponosne smo, da lahko s svojo prisotnostjo razbijamo stereotipe in prispevamo k bolj vključujočemu in raznolikemu lovskemu okolju.
+            Zavezujemo se za zavesten in sodoben lov, ki temelji na spoštovanju do živali in okolja. Kot eno pomembnejših nalog štejemo prenašanje našega znanja na otroke in mladino. S svojo prisotnostjo razbijamo stereotipe in prispevamo k bolj vključujočemu in raznolikemu lovskemu okolju.
           </p>
         </motion.div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { LogIn } from "lucide-react";
-import { Link } from "react-router-dom"; // ako koristiš react-router
+import { Link } from "react-router-dom";
 
 const Notification = () => {
   return (

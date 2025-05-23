@@ -10,6 +10,8 @@ const GalleryUploadForm = () => {
   const [images, setImages] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -33,10 +35,10 @@ const GalleryUploadForm = () => {
   const uploadToCloudinary = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "dsl_upload");
+    formData.append("upload_preset", uploadPreset);
 
     const response = await axios.post(
-      "https://api.cloudinary.com/v1_1/duvaqx6mc/image/upload",
+      `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
       formData
     );
 

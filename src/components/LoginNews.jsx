@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import React, { useState, useEffect } from "react";
+import {
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
 import { auth, db } from "../firebase";
 import {
   doc,
@@ -19,6 +23,29 @@ const LoginNews = () => {
   const [error, setError] = useState("");
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [initializing, setInitializing] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        try {
+          const userSnap = await getDoc(doc(db, "clanice", user.uid));
+          if (!userSnap.exists()) return;
+
+          const userData = userSnap.data();
+          if (userData.odobreno) {
+            setAccessGranted(true);
+            await fetchNews();
+          }
+        } catch (err) {
+          console.error("Napaka pri preverjanju uporabnika:", err);
+        }
+      }
+      setInitializing(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -51,6 +78,11 @@ const LoginNews = () => {
     }
   };
 
+  const handleLogout = async () => {
+    await signOut(auth);
+    setAccessGranted(false);
+  };
+
   const fetchNews = async () => {
     const q = query(collection(db, "obvestila"), orderBy("createdAt", "desc"));
     const snapshot = await getDocs(q);
@@ -61,12 +93,27 @@ const LoginNews = () => {
     setNews(data);
   };
 
+  if (initializing) {
+    return (
+        <div className="h-screen flex items-center justify-center bg-green-50">
+          <p className="text-green-700 text-lg font-medium">Nalagam...</p>
+        </div>
+    );
+  }
+
   if (accessGranted) {
     return (
-        <div className="max-w-3xl mx-auto py-24 px-6">
-          <h1 className="text-3xl font-bold text-green-800 mb-8 text-center">
-            Društvena obvestila
-          </h1>
+        <div className="max-w-4xl mx-auto py-24 px-6">
+          <div className="relative mb-8">
+            <h1 className="text-3xl font-bold text-green-800 text-center">Društvena obvestila</h1>
+            <button
+                onClick={handleLogout}
+                className="absolute top-1 right-0 text-white bg-red-600 hover:bg-red-700 px-3 py-1 rounded shadow"
+            >
+              Odjava
+            </button>
+          </div>
+
 
           {news.length === 0 ? (
               <p className="text-gray-600 text-center">Ni objavljenih obvestil.</p>
@@ -80,7 +127,9 @@ const LoginNews = () => {
                       <h3 className="text-xl font-semibold text-green-900 mb-2 flex items-center gap-2">
                         <Megaphone size={20} /> {item.title}
                       </h3>
-                      <p className="text-gray-700 whitespace-pre-line">{item.content}</p>
+                      <p className="text-gray-700 whitespace-pre-line">
+                        {item.content}
+                      </p>
 
                       {item.pdfUrl && (
                           <a
@@ -142,7 +191,10 @@ const LoginNews = () => {
 
           <p className="text-sm text-center text-gray-600 mt-4">
             Niste registrirani?{" "}
-            <Link to="/register" className="text-green-700 font-semibold hover:underline">
+            <Link
+                to="/register"
+                className="text-green-700 font-semibold hover:underline"
+            >
               Pošlji zahtevo
             </Link>
           </p>

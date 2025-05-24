@@ -17,6 +17,7 @@ const upravniOdbor = [
   },
   {
     ime: "Tjaša Žgur",
+    slika: "/assets/podpredsednica.jpg",
     pozicija: "Podpredsednica",
     email: "drustvo.slovenskih.lovk@lovskazveza.si",
     tel: "+386 40 662 848",

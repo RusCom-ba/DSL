@@ -100,7 +100,6 @@ const LoginNews = () => {
         </div>
     );
   }
-//this is comment
   if (accessGranted) {
     return (
         <div className="max-w-4xl mx-auto py-24 px-6">
@@ -108,7 +107,7 @@ const LoginNews = () => {
             <h1 className="text-3xl font-bold text-green-800 text-center">Društvena obvestila</h1>
             <button
                 onClick={handleLogout}
-                className="absolute top-1 right-0 text-white bg-red-600 hover:bg-red-700 px-3 py-1 rounded shadow"
+                className="absolute top-1 right-0 text-white bg-green-700 hover:bg-green-800 px-3 py-1 rounded shadow transition"
             >
               Odjava
             </button>

@@ -16,11 +16,11 @@ const upravniOdbor = [
     tel: "+386 41 786 620",
   },
   {
-    ime: "Tjaša Žgur",
-    slika: "/assets/podpredsednica.jpg",
+    ime: "Timea SOOS",
+    slika: "/assets/timea.jpg",
     pozicija: "Podpredsednica",
     email: "drustvo.slovenskih.lovk@lovskazveza.si",
-    tel: "+386 40 662 848",
+    tel: "+386 40 200 666",
   },
   {
     ime: "Magda Sluga",
@@ -32,13 +32,13 @@ const upravniOdbor = [
 ];
 
 const nadzorniOdbor = {
-  predsednica: "Janja Pavlič Razgoršek",
-  clanice: ["Jana Mravljak", "Jožica Založnik"],
+  predsednica: "Marjana Mačinkovič",
+  clanice: ["Jana Mravljak", "Katka Kovačec"],
 };
 
 const disciplinskaKomisija = {
-  predsednica: "Katka Kovačec",
-  clanice: ["Anica Ščap", "Nives Marka"],
+  predsednica: "Katja Bevk",
+  clanice: ["Nives Marka", "Jelena Šteblaj"],
 };
 
 const BoardMembers = () => {

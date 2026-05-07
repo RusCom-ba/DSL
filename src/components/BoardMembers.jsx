@@ -23,13 +23,6 @@ const upravniOdbor = [
     tel: "+386 40 200 666",
   },
   {
-    ime: "Magda Sluga",
-    slika: "/assets/sekretarka.jpg",
-    pozicija: "Poslovna sekretarka",
-    email: "drustvo.slovenskih.lovk@lovskazveza.si",
-    tel: "+386 41 657 905",
-  },
-  {
     ime: "Tjaša Žgur",
     slika: "/assets/podpredsednica.jpg",
     pozicija: "Članica UO",
@@ -42,6 +35,13 @@ const upravniOdbor = [
     pozicija: "Članica UO",
     email: "drustvo.slovenskih.lovk@lovskazveza.si",
     tel: "+386 31 484 638"
+  },
+  {
+    ime: "Magda Sluga",
+    slika: "/assets/sekretarka.jpg",
+    pozicija: "Poslovna sekretarka",
+    email: "drustvo.slovenskih.lovk@lovskazveza.si",
+    tel: "+386 41 657 905",
   }
 ];
 

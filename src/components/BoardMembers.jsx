@@ -30,7 +30,7 @@ const upravniOdbor = [
     tel: "+386 40 662 848"
   },
   {
-    ime: "Andrejka Krajnc",
+    ime: "Andrejka Kranjc",
     slika: "",
     pozicija: "Članica UO",
     email: "drustvo.slovenskih.lovk@lovskazveza.si",

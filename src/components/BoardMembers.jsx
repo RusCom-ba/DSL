@@ -29,6 +29,20 @@ const upravniOdbor = [
     email: "drustvo.slovenskih.lovk@lovskazveza.si",
     tel: "+386 41 657 905",
   },
+  {
+    ime: "Tjaša Žgur",
+    slika: "/assets/podpredsednica.jpg",
+    pozicija: "Članica UO",
+    email: "drustvo.slovenskih.lovk@lovskazveza.si",
+    tel: "+386 40 662 848"
+  },
+  {
+    ime: "Andrejka Krajnc",
+    slika: "",
+    pozicija: "Članica UO",
+    email: "drustvo.slovenskih.lovk@lovskazveza.si",
+    tel: "+386 31 484 638"
+  }
 ];
 
 const nadzorniOdbor = {
